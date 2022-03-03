@@ -1,0 +1,30 @@
+<p>users works!</p>
+<p-button (click)="showDialog()" label="Thêm mới người dùng" icon="pi pi-user-plus" iconPos="left"></p-button>
+
+<p-dialog [(visible)]="staffDialog" [contentStyle]="{'overflow':'visible'}" [formGroup]="staffForm" [style]="{width: '600px'}" header="Thêm mới nhân viên" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+      <div class="p-field">
+        <label for="MaNV">Mã nhân viên</label>
+        <input type="text" pInputText formControlName="MaNV" required autofocus />
+        <small class="p-invalid" *ngIf="submitted && !staff.MaNV">MaNV is required.</small>
+    </div>
+      <div class="p-field">
+          <label for="TenNV">Họ tên</label>
+          <input type="text" pInputText formControlName="TenNV" required autofocus />
+          <small class="p-invalid" *ngIf="submitted && !staff.TenNV">Name is required.</small>
+      </div>
+      <div class="p-field">
+          <label for="DiaChi">Địa chỉ</label>
+          <textarea pInputTextarea formControlName="DiaChi" required rows="3" cols="20"></textarea>
+      </div>
+      <div class="p-field">
+        <label>Phòng ban</label>
+        <p-dropdown [options]="cities" formControlName="PhongBan" optionLabel="name"></p-dropdown>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" ></button>
+      <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="SaveStaff()" ></button>
+  </ng-template>
+</p-dialog>

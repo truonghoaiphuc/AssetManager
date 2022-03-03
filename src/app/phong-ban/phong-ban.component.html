@@ -1,0 +1,67 @@
+<div class="card">
+  <p-toolbar styleClass="p-mb-4">
+      <ng-template pTemplate="left">
+          <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+          <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger"></button>
+      </ng-template>
+
+      <ng-template pTemplate="right">
+          <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
+          <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help"></button>
+      </ng-template>
+  </p-toolbar>
+<p-table [value]="depts" styleClass="p-datatable-gridlines p-datatable-sm p-datatable-striped"[rowHover]="true" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Mã Phòng</th>
+          <th>Tên Phòng</th>
+          <th>Ghi chú</th>
+          <th>Công ty</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-dept>
+      <tr>
+          <td>{{dept.MaPhong}}</td>
+          <td>{{dept.TenPhong}}</td>
+          <td>{{dept.GhiChu}}</td>
+          <td>{{dept.CongTy}}</td>
+          <td>
+            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editPhongBan(dept)"></button>
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deletePhongBan(dept)" ></button>
+        </td>
+      </tr>
+  </ng-template>
+</p-table>
+
+</div>
+
+<p-dialog [(visible)]="deptDialog" [contentStyle]="{'overflow':'visible'}" position="top" [formGroup]="DeptForm" [style]="{width: '30vw'}" header="Thêm mới Phòng ban" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <div class="field col-12 md:col-12">
+      <label for="MaPhong">Mã Phòng</label>
+      <input type="text" pInputText formControlName="MaPhong" required autofocus />
+     <small class="p-invalid" *ngIf="!dept.MaPhong">MaNV is required.</small>
+  </div>
+  <div class="field col-12 md:col-12">
+        <label for="TenPhong">Tên Phòng</label>
+        <input type="text" pInputText formControlName="TenPhong" required autofocus />
+        <small class="p-invalid" *ngIf="!dept.TenPhong">Name is required.</small>
+    </div>
+    <div class="field col-12 md:col-12">
+      <label>Trực thuộc</label>
+      <p-dropdown [options]="Companies" formControlName="CongTy" optionValue="id" optionLabel="TenCT"></p-dropdown>
+    </div>
+
+    <div class="field col-12 md:col-12">
+    <label for="GhiChu">Ghi chú</label>
+    <textarea pInputTextarea formControlName="GhiChu" required rows="3" cols="20"></textarea>
+</div>
+</ng-template>
+
+<ng-template pTemplate="footer">
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="Cancel()"></button>
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="SaveDept()" ></button>
+</ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

@@ -1,0 +1,72 @@
+{
+  "CongTy": [
+    {
+      "id": "TSCHN",
+      "TenCT": "Trụ sở chính",
+      "GhiChu": ""
+    },
+    {
+      "id": "CNHCM",
+      "TenCT": "Chi nhánh tại TPHCM",
+      "GhiChu": ""
+    }
+  ],
+  "PhongBan": [
+    {
+      "id": 1,
+      "MaPhong": "KTQT",
+      "TenPhong": "Phòng Kế toán - Quản trị Chi nhánh",
+      "GhiChu": "",
+      "CongTy": "CNHCM"
+    },
+    {
+      "MaPhong": "LKCN",
+      "TenPhong": "Phòng Lưu ký Chứng khoán Chi nhánh",
+      "CongTy": "CNHCM",
+      "GhiChu": "",
+      "id": 3
+    },
+    {
+      "MaPhong": "DKCN",
+      "TenPhong": "Phòng Đăng ký Chứng khoán Chi nhánh",
+      "CongTy": "CNHCM",
+      "GhiChu": "",
+      "id": 4
+    },
+    {
+      "MaPhong": "CNTT",
+      "TenPhong": "Phòng Công nghệ thông tin",
+      "CongTy": "TSCHN",
+      "GhiChu": "",
+      "id": 5
+    },
+    {
+      "MaPhong": "THPC",
+      "TenPhong": "Phòng Tổng hợp pháp chế",
+      "CongTy": "TSCHN",
+      "GhiChu": "",
+      "id": 6
+    },
+    {
+      "MaPhong": "DKCK",
+      "TenPhong": "Phòng Đăng ký chứng khoán",
+      "CongTy": "TSCHN",
+      "GhiChu": "",
+      "id": 7
+    },
+    {
+      "MaPhong": "KTTC",
+      "TenPhong": "Phòng Kế toán - Tài Chính",
+      "CongTy": "TSCHN",
+      "GhiChu": "",
+      "id": 8
+    },
+    {
+      "MaPhong": "DKCK",
+      "TenPhong": "Phòng Đăng ký chứng khoán dfg",
+      "CongTy": "TSCHN",
+      "GhiChu": "",
+      "id": 9
+    }
+  ]
+}
